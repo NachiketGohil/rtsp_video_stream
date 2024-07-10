@@ -32,7 +32,7 @@ class _StreamListState extends State<StreamList> {
           IconButton(
             onPressed: () {
               /// Go to Github
-              ///
+              launchGitHub();
             },
             icon: const Icon(Icons.code),
             iconSize: 36,
@@ -52,11 +52,12 @@ class _StreamListState extends State<StreamList> {
                   fontSize: 20,
                 ),
               ),
+              trailing: const Icon(Icons.arrow_forward_ios),
             ),
             const Divider(
-              height: 1,
+              height: 4,
               color: Colors.black,
-              thickness: 2,
+              thickness: 1,
             ),
             section("Other Explored Data Sources"),
             Expanded(
@@ -79,6 +80,7 @@ class _StreamListState extends State<StreamList> {
                         fontSize: 20,
                       ),
                     ),
+                    trailing: const Icon(Icons.arrow_forward_ios),
                   );
                 },
               ),
@@ -96,7 +98,7 @@ class _StreamListState extends State<StreamList> {
         children: [
           Container(
             height: 40,
-            width: 10,
+            width: 6,
             decoration: BoxDecoration(
               color: Colors.purpleAccent[100],
               borderRadius: BorderRadius.circular(4),
@@ -116,10 +118,8 @@ class _StreamListState extends State<StreamList> {
   }
 }
 
-final Uri _url = Uri.parse('https://flutter.dev');
+final Uri url = Uri.parse('https://github.com/NachiketGohil/rtsp_video_stream');
 
 Future<void> launchGitHub() async {
-  if (!await launchUrl(_url)) {
-    throw Exception('Could not launch $_url');
-  }
+  await launchUrl(url);
 }
